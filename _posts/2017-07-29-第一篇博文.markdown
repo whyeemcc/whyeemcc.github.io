@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "第一篇博文"
+date:   2017-07-29 21:50:01
+categories: blog
+headerImage: false
+tag:
+- 随笔
+star: true
+category: blog
+author: whyeemcc
+description: none
+---
+暂为空
