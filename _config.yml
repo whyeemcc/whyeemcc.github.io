@@ -45,14 +45,8 @@ email: whyeemcc@gmail.com
 # pinterest: mypinterest
 # linkedin: kun-yu-60813674
 # youtube: myyoutube
-# spotify: myspotify
-# lastfm: mylastfm
 # stackoverflow: 
 # quora: userquora
-# reddit: username
-# medium: medium
-# vimeo: myvimeo
-
 
 authors:
     whyeemcc:
@@ -94,7 +88,7 @@ post-advance-links: [blog]
 show-author: false
 
 # do you want some animations?
-animation: true
+animation: false
 
 # plugins_dir:
   # - jekyll-seo-tag
