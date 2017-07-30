@@ -1,3 +1,6 @@
+# parser
+markdown: kramdown
+
 # main text of home
 name: Whyeemcc
 bio: Endeavor to understand this world
@@ -20,8 +23,6 @@ url: http://whyeemcc.github.io
 
 permalink: /:title/
 
-markdown: kramdown
-
 # To enable google analytics, supply your token below
 # analytics-google: 'UA-MYANALYTICS'
 
@@ -37,20 +38,21 @@ disqus:
 # if you don't have any of social below, comment the line
 facebook: whyeemcc
 twitter: whyeemcc
+github: whyeemcc
+email: whyeemcc@gmail.com
 # google: mygoogle
 # instagram: myinstagram
 # pinterest: mypinterest
 # linkedin: kun-yu-60813674
 # youtube: myyoutube
 # spotify: myspotify
-github: whyeemcc
 # lastfm: mylastfm
 # stackoverflow: 
 # quora: userquora
 # reddit: username
 # medium: medium
 # vimeo: myvimeo
-email: whyeemcc@gmail.com
+
 
 authors:
     whyeemcc:
