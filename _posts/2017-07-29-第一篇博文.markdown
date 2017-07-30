@@ -15,6 +15,10 @@ description: none
 
 公式测试：
 
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
+formula1: $$n==x$$
+
 $$\sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6}$$
 
 
