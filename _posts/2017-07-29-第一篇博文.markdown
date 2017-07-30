@@ -20,6 +20,11 @@ $$\sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6}$$
 
 ## second
 
+<div class="Math">
+  $$y=x^2$$
+</div>
+
+
 $$x_\mu$$
 
 \(x_\mu)\
