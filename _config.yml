@@ -20,6 +20,8 @@ url: http://whyeemcc.github.io
 
 permalink: /:title/
 
+markdown: kramdown
+
 # To enable google analytics, supply your token below
 # analytics-google: 'UA-MYANALYTICS'
 

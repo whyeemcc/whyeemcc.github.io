@@ -12,3 +12,8 @@ author: whyeemcc
 description: none
 ---
 暂为空
+
+公式测试：
+$$
+\theta_i = \theta_i - \alpha\frac\partial{\partial\theta_i}J(\theta)
+$$
