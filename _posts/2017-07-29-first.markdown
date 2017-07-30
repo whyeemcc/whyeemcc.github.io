@@ -15,35 +15,11 @@ description: none
 
 公式测试：
 
-`[\sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6}]`
-
-`[$$\sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6}$$]`
 
 formula1: $$n==x$$
 
 $$\sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6}$$
 
-$$
-\begin{aligned}
-x_\mu
-\end{aligned}
-$$
-
 ## second
 
-<div class="Math">
-  $$y=x^2$$
-</div>
-
-
-$$x_\mu$$
-
-\(x_\mu)\
-
-\[x_\mu\]
-
-\($$x_\mu$$)\
-
-\\(\sqrt x\\)
-
-\(\sqrt x\)
+jlkasjdlas $\sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6}$ sada 
