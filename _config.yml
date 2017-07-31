@@ -90,11 +90,11 @@ show-author: false
 # do you want some animations?
 animation: false
 
-# plugins_dir:
-  # - jekyll-seo-tag
-  # - jekyll-gist
-  # - jekyll-feed
-  # - jemoji
+plugins_dir:
+  - jekyll-seo-tag
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
 
-# jekyll-mentions:
-    # base_url: {{site.baseurl}}
+jekyll-mentions:
+    base_url: {{site.baseurl}}
