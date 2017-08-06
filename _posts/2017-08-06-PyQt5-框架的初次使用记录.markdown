@@ -1,0 +1,106 @@
+---
+layout: post
+title:  "PyQt5 框架的初次使用记录"
+date:   2017-08-06 16:00:00
+categories: blog
+headerImage: false
+tag:
+- python
+- PyQt5
+star: true
+category: blog
+author: whyeemcc
+description: none
+---
+
+## 一，为什么选择 PyQt
+
+最近想尝试一下GUI的编写，折腾一个小软件来自己工作中使用。Python有标准库Tkinter，但是没找到一些合适的资料，写起来也很不顺眼，恰好我安装的Anaconda里还有一个GUI库：`PyQt5`，查询资料后，觉得上手比较简单，触发信号和槽的使用逻辑也很清晰。
+
+PyQt是什么？官网所述：
+>PyQt is a set of Python v2 and v3 bindings for The Qt Company's Qt application framework and runs on all platforms supported by Qt including Windows, OS X, Linux, iOS and Android.
+
+说人话就是PyQt是C++的GUI框架之一Qt在Python上的实现，并且是跨平台的。
+
+## 二，最终的成品
+
+当初想开发界面程序是为了数据可视化，而数据可视化我只会用matplotlib...所以就调用了matplotlib的接口。
+
+![image](image/2017-08-06/interface.png)
+
+## 三，一些细节部分
+
+**1 . Layout**
+
+Layout决定了整个程序界面的布局，是写GUI最早就要制定的，PyQt5提供了几种常见的布局方式：
+
+* 绝对布局 Absolute Layout
+* 网格布局 Grid Layout
+* 箱式布局 HBoxLayout & VBoxLayout 
+
+绝对布局会将你所摆放的部件钉死在界面的某个固定位置上，不论界面被拉大还是缩小位置都不会改变，不易使用。刚开始想用网格布局，像矩阵的元素位置一样给每个部件分配位置，当程序界面被缩放时，网格布局会自动撑满整个布局空间，但后来发现我要摆放的控件太多了，一个个地分配坐标非常繁琐，而且不易修改和维护，于是就全部使用箱式布局。这种布局类似于在大盒子里放东西，你可以放你的控件，也可以放一个小盒子（也可以是其他布局），小盒子能继续放其他更小的盒子，这样一层层的定义，可以满足一些基本的界面设计。
+
+**2 . stretch函数**
+
+定义盒子里留空的位置，如果想让BoxLayout的右端或底端占空，所有控件都紧缩在另一头时，需要在layout加载完控件或底层的布局之后，加上这句：
+
+```python
+xxxBoxLayout.addStretch()  
+```
+
+反之，如果要将留空部位在左端或顶端，则需要在加载控件或布局之前，就写上这行函数。若果要控件等间距地排满整个盒子，则要在加载控件时相继插入该函数：
+
+```python
+xxxBoxLayout.addStretch() 
+xxxBoxLayout.addWidget(xxx1)
+xxxBoxLayout.addStretch() 
+xxxBoxLayout.addWidget(xxx2)
+xxxBoxLayout.addStretch() 
+...
+```
+
+**3 . 信号和槽**
+
+使用方法是：
+ 
+```python
+xxxWidget.xxxSignal.connect(xxxFunction)
+```
+
+具体哪些控件有哪些信号，可以去查阅官方文档，例如被`点击`、`被选中`、`列表中序号被更改`等等，括号内的函数可以是内置的，如点击关闭按钮时需要的`退出程序`动作，也可以是任意你自己设定的函数动作。
+
+## 四，一些坑
+
+**1 . 打包exe**
+
+用的打包工具是`pyinstaller`，一定要安装对应python版本的，否则可能各种失败。另外在Anaconda上打包也不行，重装了官方的python3再手动装上各种库后，反而能成功。
+
+**2 . pyinstaller的`.spec`文件**
+
+写好.spec文件可以省事，每次调试只需要直接`pyinstaller xxx.spec`就好了，但是最好在 `a=Analysis()`的`pathex`列表里加上Qt的源码，否则编译出来会报找不到`pt5plugins`里各种`dll`的错误。地址一般为：
+
+```python
+..\\Python\\Lib\\site-packages\\PyQt5\\Qt\\bin
+```
+
+**3 . 程序标题栏的图标**
+
+标题栏图标在脚本直接运行时显示完全没问题，但等我打包完exe后，它就显示不了，后来网上搜索到，需要用到`Qt Resource System`机制来将图片等附属文件加载到程序里。首先需要创建一个`xxx.qrc`文件，在里面写入：
+
+```python
+<RCC>
+  <qresource prefix="/" >
+    <file>images/logo.gif</file>
+  </qresource>
+</RCC>
+```
+
+因为我只有一个标题栏logo的图片需要添加，所以只有一行`<file>`。完成后在该目录下进入`cmd`命令行，输入`pyrcc5 -o xxx_qr.py xxx.qrc`，即可生成`xxx_qr.py`脚本，然后在主程序中`import xxx_qr`，并设置标题栏图片中的路径要与上保持一致，并在前面补上`:`即可：
+
+```python
+self.setWindowIcon(QtGui.QIcon(':/images/logo.gif'))
+```
+
+**4 . 文件夹中的显示图标(ico)**
+
+这种图标与之前的不同，是在Windows文件夹下显示的程序图标，必须支持不同大小显示，比如‘平铺’和‘列表’显示出来的图标大小就不一样，所以事先要将图片做好至少4个不同尺寸的文件，再从网上下载相应工具将4张图片合成至一个`ico`图标文件里去，我制作了‘16x16、32x32、48x48、256x256’ 四种像素大小的png图片。ico文件生成好后，在`.spec`文件里`exe = EXE()`的`icon`里填上该`ico`文件的完整路径即可。
