@@ -2,7 +2,6 @@
 layout: post
 title:  "Jekyll中关于MathJax的坑"
 date:   2017-07-30 21:50:01
-categories: blog
 headerImage: false
 tag:
 - jekyll

@@ -1,13 +1,11 @@
 ---
 layout: post
 title:  "PyQt5 框架的初次使用记录"
-date:   2017-08-06 16:00:00
-categories: blog
+date:   2017-08-06 16:00
 headerImage: false
 tag:
 - python
 - PyQt5
-star: true
 category: blog
 author: whyeemcc
 description: none
@@ -26,7 +24,7 @@ PyQt是什么？官网所述：
 
 当初想开发界面程序是为了数据可视化，而数据可视化我只会用matplotlib...所以就调用了matplotlib的接口。
 
-![image](image/2017-08-06/interface.png)
+![image](/image/2017-08-06/interface.png)
 
 ## 三，一些细节部分
 
