@@ -18,7 +18,7 @@ description: none
 PyQt是什么？官网所述：
 >PyQt is a set of Python v2 and v3 bindings for The Qt Company's Qt application framework and runs on all platforms supported by Qt including Windows, OS X, Linux, iOS and Android.
 
-说人话就是PyQt是C++的GUI框架之一Qt在Python上的实现，并且是跨平台的。
+简单来说就是PyQt是C++的GUI框架之一Qt在Python上的实现，并且是跨平台的。
 
 ## 二，最终的成品
 
@@ -40,13 +40,13 @@ Layout决定了整个程序界面的布局，是写GUI最早就要制定的，Py
 
 **2 . stretch函数**
 
-定义盒子里留空的位置，如果想让BoxLayout的右端或底端占空，所有控件都紧缩在另一头时，需要在layout加载完控件或底层的布局之后，加上这句：
+用来定义盒子里留空的位置，如果想让BoxLayout的右端或底端占空，所有控件都紧缩在另一头时，需要在layout加载完控件或底层的布局之后，加上这句：
 
 ```python
 xxxBoxLayout.addStretch()  
 ```
 
-反之，如果要将留空部位在左端或顶端，则需要在加载控件或布局之前，就写上这行函数。若果要控件等间距地排满整个盒子，则要在加载控件时相继插入该函数：
+反之，如果要将留空部位在左端或顶端，则需要在加载控件或布局之前，就写上这行函数。如果要控件等间距地排满整个盒子，则要在加载控件时相继插入该函数：
 
 ```python
 xxxBoxLayout.addStretch() 
@@ -71,7 +71,7 @@ xxxWidget.xxxSignal.connect(xxxFunction)
 
 **1 . 打包exe**
 
-用的打包工具是`pyinstaller`，一定要安装对应python版本的，否则可能各种失败。另外在Anaconda上打包也不行，重装了官方的python3再手动装上各种库后，反而能成功。
+用的打包工具是`pyinstaller`，一定要安装对应python版本的，否则可能各种失败。另外，我在Anaconda上打包也不行，重装了官方的python3再手动装上各种库后，反倒打包成功了。
 
 **2 . pyinstaller的`.spec`文件**
 
@@ -101,4 +101,10 @@ self.setWindowIcon(QtGui.QIcon(':/images/logo.gif'))
 
 **4 . 文件夹中的显示图标(ico)**
 
-这种图标与之前的不同，是在Windows文件夹下显示的程序图标，必须支持不同大小显示，比如‘平铺’和‘列表’显示出来的图标大小就不一样，所以事先要将图片做好至少4个不同尺寸的文件，再从网上下载相应工具将4张图片合成至一个`ico`图标文件里去，我制作了‘16x16、32x32、48x48、256x256’ 四种像素大小的png图片。ico文件生成好后，在`.spec`文件里`exe = EXE()`的`icon`里填上该`ico`文件的完整路径即可。
+这种图标与之前的不同，是在Windows文件夹下显示的程序图标，必须支持不同大小显示，比如“平铺”和“列表”显示出来的图标大小就不一样，所以事先要将图片做好至少4个不同尺寸的文件，再从网上下载相应工具将4张图片合成至一个`ico`图标文件里去，我制作了‘16x16、32x32、48x48、256x256’ 四种像素大小的png图片。ico文件生成好后，在`.spec`文件里`exe = EXE()`的`icon`里填上该`ico`文件的完整路径即可。
+
+## 五，总结
+
+编译出来的exe如果是单个文件，则打开速度超级慢，要先经过解压缩再执行。如果打包成一个文件夹，程序开启速度稍微快一点，但还是不理想，而且体积巨大，竟然达到70M之巨！因为它把我import过的库都一股脑带过来了，matplotlib和numpy之类的。我重写了部分数学函数，本想去掉numpy减小点体积，但numpy是matplotlib所依赖的，不论你是否import过numpy，它都会被一起打包进来。程序运行时的效率一般，尤其是导入的数据文件较大时，切换条目时有稍稍的延迟感，要想获得更好的性能，还是用C++吧。
+
+
