@@ -24,7 +24,7 @@ PyQt是什么？官网所述：
 
 当初想开发界面程序是为了数据可视化，而数据可视化我只会用matplotlib...所以就调用了matplotlib的接口。
 
-![image](/image/2017-08-06/interface.png)
+![image](/images/2017-08-06/interface.png){: class="bigger-image" }
 
 ## 三，一些细节部分
 
