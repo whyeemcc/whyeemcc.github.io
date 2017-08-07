@@ -7,7 +7,6 @@ headerImage: false
 tag:
 - jekyll
 - blog
-star: true
 category: blog
 author: whyeemcc
 description: none
