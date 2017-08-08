@@ -22,7 +22,7 @@ PyQt是什么？官网所述：
 
 ## 二，最终的成品
 
-当初想开发界面程序是为了数据可视化，而数据可视化我只会用matplotlib...所以就调用了matplotlib的接口。源代码(https://github.com/whyeemcc/Mapping-Analyst)
+当初想开发界面程序是为了数据可视化，而数据可视化我只会用matplotlib...所以就调用了matplotlib的接口。[源代码](https://github.com/whyeemcc/Mapping-Analyst)
 
 ![image](/images/2017-08-06/interface.png){: class="bigger-image" }
 
