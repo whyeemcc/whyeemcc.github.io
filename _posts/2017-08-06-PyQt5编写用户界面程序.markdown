@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "PyQt5 框架的初次使用记录"
+title:  "PyQt5编写用户界面程序"
 date:   2017-08-06 16:00
 headerImage: false
 tag:
