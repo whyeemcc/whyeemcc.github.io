@@ -22,4 +22,23 @@ $$f\left( x \right)= \omega^T x+ b$$
 
 ### 3.2 试证明，对于参数 $\omega$，对数几率回归的目标函数（3.18）是非凸的，但其对数似然函数（3.27）是凸的。
 
+式（3.18）：
+
+$$y=\frac{1}{1+{e}^{-( {\omega}^{T}+b)}}$$
+
+式（3.27）：
+
+$$\imath (\beta )=\sum_{i=1}^{m}(-y_{i}\beta^{T}\hat{x}_{i}+ln(1\l+e^{\beta^{T}\hat{x}_{i}}))$$
+
 答： 
+
+(1) : 对于这种多元函数的二次微分，可以求出其Hessian矩阵，判断它的正定性，即可得出它的凹凸性质。
+
+式（3.18）的一阶偏导为 $\frac{dy}{d\omega }=(y-y^2)\frac{d(\omega^{T}x)}{d\omega}$，其中$\frac{d(\omega^{T}x)}{d\omega}$为一个对角矩阵。因此它的二阶偏导为：
+
+$$\frac{d^2y}{d\omega^2 }=(1-2y)\frac{d(\omega^{T}x)}{d\omega} \frac{dy}{d\omega}=(1-2y)(y-y^2)\frac{d(\omega^{T}x)}{d\omega}\frac{d(\omega^{T}x)}{d\omega}$$
+
+简化为$(1-2y)(y-y^2)x^Tx$，在这里$x^Tx$是数值大于或等于0的平方项的对角矩阵，所以为半定矩阵，由于在sigmoid函数中，值域$0<y<1$，当$y>0.5$时，此Hessian矩阵非正定，因此是非凸的。
+
+(2) : 
+
