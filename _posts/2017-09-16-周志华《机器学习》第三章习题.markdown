@@ -28,7 +28,7 @@ $$y=\frac{1}{1+{e}^{-( {\omega}^{T}+b)}}$$
 
 式（3.27）：
 
-$$\imath (\beta )=\sum_{i=1}^{m}(-y_{i}\beta^{T}\hat{x}_{i}+ln(1\l+e^{\beta^{T}\hat{x}_{i}}))$$
+$$\imath (\beta )=\sum_{i=1}^{m}(-y_{i}\beta^{T}\hat{x}_{i}+ln(1+e^{\beta^{T}\hat{x}_{i}}))$$
 
 答： 
 
