@@ -24,7 +24,7 @@ $$f\left( x \right)= \omega^T x+ b$$
 
 式（3.18）：
 
-$$y=\frac{1}{1+{e}^{-( {\omega}^{T}+b)}}$$
+$$y=\frac{1}{1+{e}^{-( {\omega}^{T}x+b)}}$$
 
 式（3.27）：
 
