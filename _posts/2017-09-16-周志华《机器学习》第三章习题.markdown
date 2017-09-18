@@ -48,14 +48,14 @@ $$\frac{\partial \imath (\beta)}{\partial\beta}=\sum_{i=1}^{m}(-y_{i}+\frac{e^{\
 
 二阶偏导为：
 
-$$\frac{\partial^2 \imath (\beta)}{\partial \beta\partial\beta^T}=\sum_{i=1}^{m}\frac{e^{\beta^T\hat{x}_{i}}(1+e^{\beta^T\hat{x}_{i}})-e^{\beta^T\hat{x}_{i}}e^{\beta^T\hat{x}_{i}})}{(1+e^{\beta^T\hat{x}_{i}})^2}\frac{\partial(\beta^T\hat{x}_{i})}{\partial\beta}\frac{\partial(\beta^T\hat{x}_{i})}{\partial\beta}$$
+$$\frac{\partial^2 \imath (\beta)}{\partial \beta\partial\beta^T}=\sum_{i=1}^{m}\frac{e^{\beta^T\hat{x}_{i}}(1+e^{\beta^T\hat{x}_{i}})-e^{\beta^T\hat{x}_{i}}e^{\beta^T\hat{x}_{i}}}{(1+e^{\beta^T\hat{x}_{i}})^2}\frac{\partial(\beta^T\hat{x}_{i})}{\partial\beta}\frac{\partial(\beta^T\hat{x}_{i})}{\partial\beta}$$
 
 进一步：
 
 $$\frac{\partial^2 \imath (\beta)}{\partial \beta\partial\beta^T}=\sum_{i=1}^{m}\hat{x}_{i}^T\hat{x}_{i}\frac{e^{\beta^T\hat{x}_{i}}}{1+e^{\beta^T\hat{x}_{i}}}\frac{1}{1+e^{\beta^T\hat{x}_{i}}}$$
 
-最终可写成后验概率为 $p(y=1\left | x)$ 的形式，即：
+最终可写成后验概率为 $p(y=1\left|x)$ 的形式，即：
 
 $$\frac{\partial^2 \imath (\beta)}{\partial \beta\partial\beta^T}=\sum_{i=1}^{m}\hat{x}_{i}^T\hat{x}_{i}p_1(\hat{x}_{i};\beta)(1-p_1(\hat{x}_{i};\beta))$$
 
-由于 $0<p(y=1\left | x)<1$，所有为正定矩阵，则该式（对数似然函数）是凸的。
+由于 $0<p(y=1\left|x)<1$，所有为正定矩阵，则该式（对数似然函数）是凸的。
