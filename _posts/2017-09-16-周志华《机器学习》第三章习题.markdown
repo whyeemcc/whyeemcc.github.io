@@ -34,13 +34,13 @@ $$\imath (\beta )=\sum_{i=1}^{m}(-y_{i}\beta^{T}\hat{x}_{i}+ln(1+e^{\beta^{T}\ha
 
 答： 
 
-(1) : 对于这种多元函数的二次微分，可以求出其Hessian矩阵，判断它的正定性，即可得出它的凹凸性质。
+(1) : 对于这种多元函数的二阶微分，可以求出其Hessian矩阵，判断它的正定性，即可得出它的凹凸性质。
 
-式（3.18）的一阶偏导为 $\frac{dy}{d\omega }=(y-y^2)\frac{d(\omega^{T}x)}{d\omega}$，其中$\frac{d(\omega^{T}x)}{d\omega}$为一个对角矩阵。因此它的二阶偏导为：
+式（3.18）的一阶偏导为 $\frac{\partial y}{\partial\omega }=(y-y^2)\frac{\partial(\omega^{T}x)}{\partial\omega}$，其中$\frac{\partial(\omega^{T}x)}{\partial\omega}$为一个对角矩阵。因此它的二阶偏导为：
 
-$$\frac{d^2y}{d\omega^2 }=(1-2y)\frac{d(\omega^{T}x)}{d\omega} \frac{dy}{d\omega}=(1-2y)(y-y^2)\frac{d(\omega^{T}x)}{d\omega}\frac{d(\omega^{T}x)}{d\omega}$$
+$$\frac{\partial^2y}{\partial\omega^T \partial\omega}=(1-2y)\frac{\partial(\omega^{T}x)}{\partial\omega} \frac{\partial y}{\partial\omega}=(1-2y)(y-y^2)\frac{\partial(\omega^{T}x)}{\partial\omega}\frac{\partial(\omega^{T}x)}{\partial\omega}$$
 
-简化为$(1-2y)(y-y^2)x^Tx$，在这里$x^Tx$是数值大于或等于0的平方项的对角矩阵，所以为半定矩阵，由于在sigmoid函数中，值域$0<y<1$，当$y>0.5$时，此Hessian矩阵非正定，因此是非凸的。
+简化为$(1-2y)(y-y^2)x^Tx$，在这里$x^Tx$是数值大于或等于0的平方项的对角矩阵，所以为半正定矩阵，由于在sigmoid函数中，值域$0<y<1$，当$y>0.5$时，此Hessian矩阵非正定，因此是非凸的。
 
 (2) : 
 
