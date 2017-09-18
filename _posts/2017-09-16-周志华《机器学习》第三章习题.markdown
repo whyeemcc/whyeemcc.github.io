@@ -38,9 +38,24 @@ $$\imath (\beta )=\sum_{i=1}^{m}(-y_{i}\beta^{T}\hat{x}_{i}+ln(1+e^{\beta^{T}\ha
 
 式（3.18）的一阶偏导为 $\frac{\partial y}{\partial\omega }=(y-y^2)\frac{\partial(\omega^{T}x)}{\partial\omega}$，其中$\frac{\partial(\omega^{T}x)}{\partial\omega}$为一个对角矩阵。因此它的二阶偏导为：
 
-$$\frac{\partial^2y}{\partial\omega^T \partial\omega}=(1-2y)\frac{\partial(\omega^{T}x)}{\partial\omega} \frac{\partial y}{\partial\omega}=(1-2y)(y-y^2)\frac{\partial(\omega^{T}x)}{\partial\omega}\frac{\partial(\omega^{T}x)}{\partial\omega}$$
+$$\frac{\partial^2y}{\partial\omega\partial\omega^T}=(1-2y)\frac{\partial(\omega^{T}x)}{\partial\omega} \frac{\partial y}{\partial\omega}=(1-2y)(y-y^2)\frac{\partial(\omega^{T}x)}{\partial\omega}\frac{\partial(\omega^{T}x)}{\partial\omega}$$
 
 简化为$(1-2y)(y-y^2)x^Tx$，在这里$x^Tx$是数值大于或等于0的平方项的对角矩阵，所以为半正定矩阵，由于在sigmoid函数中，值域$0<y<1$，当$y>0.5$时，此Hessian矩阵非正定，因此是非凸的。
 
-(2) : 
+(2) : 式（3.27）的一阶偏导为：
 
+$$\frac{\partial \imath (\beta)}{\partial\beta}=\sum_{i=1}^{m}(-y_{i}+\frac{e^{\beta^T\hat{x}_{i}}}{1+e^{\beta^T\hat{x}_{i}}})\frac{\partial(\beta^T\hat{x}_{i})}{\partial\beta}$$
+
+二阶偏导为：
+
+$$\frac{\partial^2 \imath (\beta)}{\partial \beta\partial\beta^T}=\sum_{i=1}^{m}\frac{e^{\beta^T\hat{x}_{i}}(1+e^{\beta^T\hat{x}_{i}})-e^{\beta^T\hat{x}_{i}}e^{\beta^T\hat{x}_{i}})}{(1+e^{\beta^T\hat{x}_{i}})^2}\frac{\partial(\beta^T\hat{x}_{i})}{\partial\beta}\frac{\partial(\beta^T\hat{x}_{i})}{\partial\beta}$$
+
+进一步：
+
+$$\frac{\partial^2 \imath (\beta)}{\partial \beta\partial\beta^T}=\sum_{i=1}^{m}\hat{x}_{i}^T\hat{x}_{i}\frac{e^{\beta^T\hat{x}_{i}}}{1+e^{\beta^T\hat{x}_{i}}}\frac{1}{1+e^{\beta^T\hat{x}_{i}}}$$
+
+最终可写成后验概率为 $p(y=1\left | x)$ 的形式，即：
+
+$$\frac{\partial^2 \imath (\beta)}{\partial \beta\partial\beta^T}=\sum_{i=1}^{m}\hat{x}_{i}^T\hat{x}_{i}p_1(\hat{x}_{i};\beta)(1-p_1(\hat{x}_{i};\beta))$$
+
+由于 $0<p(y=1\left | x)<1$，所有为正定矩阵，则该式（对数似然函数）是凸的。
