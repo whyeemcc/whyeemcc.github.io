@@ -58,4 +58,7 @@ $$\frac{\partial^2 \imath (\beta)}{\partial \beta\partial\beta^T}=\sum_{i=1}^{m}
 
 $$\frac{\partial^2 \imath (\beta)}{\partial \beta\partial\beta^T}=\sum_{i=1}^{m}\hat{x}_{i}^T\hat{x}_{i}p_1(\hat{x}_{i};\beta)(1-p_1(\hat{x}_{i};\beta))$$
 
-由于 $0<p(y=1|x)<1$，所有为正定矩阵，则该式（对数似然函数）是凸的。
+由于 0<p(y=1|x)<1，所以为正定矩阵，则该式（对数似然函数）是凸的。
+
+
+### 3.3 编程实现对率回归，并给出西瓜数据集 3.0a 上的结果。
