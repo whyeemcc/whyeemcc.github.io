@@ -88,6 +88,12 @@ $$\frac{\partial^2 \imath (\beta)}{\partial \beta\partial\beta^T}=\sum_{i=1}^{m}
 
 这里的特征只有两个，即密度和含糖率，事先需要将样本标记，可以把好瓜标记为1，差瓜标记为0，然后保存到数据文件内，供代码读取。
 
+使用梯度下降法，激活函数选择sigmoid函数，通过反向传播，进行迭代，可以看到当学习率 $\alpha$ 为2时，大约800次迭代，误差函数已经基本收敛。
+
+![image](/images/2017-08-15/result.png){: class="bigger-image" }
+
+代码如下：
+
 ```python
 import sys,os
 import pandas as pd
