@@ -30,7 +30,7 @@ Bsim为了建模工程师能对大量尺寸的Mos器件进行拟合，引入了�
 
 项目地址：[源代码](https://github.com/whyeemcc/Binumerical)，主界面如下图：
 
-![image](/images/2018-01-09/interface.png){: class="bigger-image" }
+![image](/images/2018-01-09/Interface.png){: class="bigger-image" }
 
 ## 代码部分
 
